@@ -3,692 +3,945 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GreyMC Agency | Fast Static Websites for South African Businesses</title>
+    <title>ProCourt Resurfacing Solutions | Tennis & Netball Court Experts</title>
+    <meta name="description" content="Professional tennis and netball court resurfacing services. Transform your sports facility with our expert court renovation solutions. Free quotes available.">
+    <meta name="keywords" content="tennis court resurfacing, netball court repair, acrylic court surfaces, court maintenance services, sports surface renovation">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="ProCourt Resurfacing Solutions">
+    <meta property="og:description" content="Transform your tennis or netball courts with our professional resurfacing services.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://procourtsolutions.com">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1540457178556-99355a3c38aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ProCourt Resurfacing Solutions">
+    <meta name="twitter:description" content="Professional tennis and netball court resurfacing services. Transform your sports facility with our expert court renovation solutions.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1540457178556-99355a3c38aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ProCourt Resurfacing Solutions",
+      "image": "https://images.unsplash.com/photo-1540457178556-99355a3c38aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80",
+      "telephone": "+1-800-PRO-COURT",
+      "email": "info@procourtsolutions.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Sports Facility Blvd",
+        "addressLocality": "Sportstown",
+        "addressRegion": "ST",
+        "postalCode": "12345",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 40.7128,
+        "longitude": -74.0060
+      },
+      "openingHours": "Mo-Fr 08:00-18:00",
+      "url": "https://procourtsolutions.com",
+      "priceRange": "$$$",
+      "description": "Professional tennis and netball court resurfacing services with over 15 years of experience.",
+      "serviceArea": {
+        "@type": "Place",
+        "name": "Metropolitan Area"
+      }
+    }
+    </script>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#006400', // Deep green
+                        secondary: '#FFA500', // Orange
+                        accent: '#228B22', // Forest green
+                        light: '#F0FFF0', // Honeydew
+                        dark: '#003300' // Dark green
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
     <style>
-        /* Custom CSS for elements that need more styling */
-        .hero-gradient {
-            background: linear-gradient(135deg, #4b5563 0%, #1f2937 100%);
+        body {
+            font-family: 'Open Sans', sans-serif;
         }
-        .testimonial-slider {
-            scroll-snap-type: x mandatory;
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
         }
-        .testimonial-slide {
-            scroll-snap-align: start;
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0, 100, 0, 0.7), rgba(0, 51, 0, 0.8)), url('https://images.unsplash.com/photo-1540457178556-99355a3c38aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
         }
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 100;
-        }
-        .sticky-nav {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            backdrop-filter: blur(10px);
-        }
-        .package-card:hover {
+        
+        .service-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        .popular-badge {
-            top: -15px;
-            right: 20px;
+        
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .process-step {
+            position: relative;
+        }
+        
+        .process-step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            width: 40px;
+            height: 2px;
+            background: #FFA500;
+        }
+        
+        @media (max-width: 768px) {
+            .process-step:not(:last-child):after {
+                display: none;
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .cta-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .form-input:focus {
+            border-color: #FFA500;
+            box-shadow: 0 0 0 3px rgba(255, 165, 0, 0.2);
         }
     </style>
 </head>
-<body class="font-sans antialiased text-gray-800">
-    <!-- Sticky Navigation -->
-    <nav class="sticky-nav bg-white/90 shadow-sm">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-gray-800">Grey<span class="text-blue-600">MC</span></a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="text-gray-800 hover:text-blue-600 transition">Home</a>
-                <a href="#services" class="text-gray-800 hover:text-blue-600 transition">Services</a>
-                <a href="#portfolio" class="text-gray-800 hover:text-blue-600 transition">Portfolio</a>
-                <a href="#pricing" class="text-gray-800 hover:text-blue-600 transition">Pricing</a>
-                <a href="#contact" class="text-gray-800 hover:text-blue-600 transition">Contact</a>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="bg-primary w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-tennis-ball text-white text-xl"></i>
+                </div>
+                <h1 class="text-2xl font-bold text-primary">ProCourt<span class="text-secondary">Solutions</span></h1>
             </div>
-            <a href="#contact" class="hidden md:block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-medium transition">Get Free Quote</a>
-            <button class="md:hidden text-gray-800" id="mobile-menu-button">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </div>
-        <!-- Mobile menu -->
-        <div class="md:hidden hidden bg-white shadow-lg" id="mobile-menu">
-            <div class="px-4 py-3 space-y-4">
-                <a href="#home" class="block text-gray-800 hover:text-blue-600 transition">Home</a>
-                <a href="#services" class="block text-gray-800 hover:text-blue-600 transition">Services</a>
-                <a href="#portfolio" class="block text-gray-800 hover:text-blue-600 transition">Portfolio</a>
-                <a href="#pricing" class="block text-gray-800 hover:text-blue-600 transition">Pricing</a>
-                <a href="#contact" class="block text-gray-800 hover:text-blue-600 transition">Contact</a>
-                <a href="#contact" class="block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-medium transition text-center">Get Free Quote</a>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#services" class="text-gray-700 hover:text-primary font-medium">Services</a>
+                <a href="#gallery" class="text-gray-700 hover:text-primary font-medium">Gallery</a>
+                <a href="#process" class="text-gray-700 hover:text-primary font-medium">Process</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-primary font-medium">Testimonials</a>
+                <a href="#contact" class="text-gray-700 hover:text-primary font-medium">Contact</a>
+            </nav>
+            
+            <div class="flex items-center">
+                <a href="tel:+18007762687" class="hidden md:block bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-dark transition">
+                    <i class="fas fa-phone mr-2"></i> (800) PRO-COURT
+                </a>
+                <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
             </div>
         </div>
-    </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-inner">
+            <div class="flex flex-col space-y-3">
+                <a href="#services" class="text-gray-700 hover:text-primary font-medium py-2">Services</a>
+                <a href="#gallery" class="text-gray-700 hover:text-primary font-medium py-2">Gallery</a>
+                <a href="#process" class="text-gray-700 hover:text-primary font-medium py-2">Process</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-primary font-medium py-2">Testimonials</a>
+                <a href="#contact" class="text-gray-700 hover:text-primary font-medium py-2">Contact</a>
+                <a href="tel:+18007762687" class="bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-dark transition text-center">
+                    <i class="fas fa-phone mr-2"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-gradient text-white py-20 md:py-32">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6">Lightning-Fast Websites for South African Businesses</h1>
-                <p class="text-xl mb-8 text-gray-300">Get a professional, high-performance static website that loads in under 2 seconds - guaranteed!</p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#contact" class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-full font-bold text-center transition">Get Your Free Quote</a>
-                    <a href="#portfolio" class="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-full font-bold text-center transition">View Our Portfolio</a>
-                </div>
-                <div class="mt-8 flex flex-wrap gap-4">
-                    <div class="flex items-center">
-                        <div class="bg-blue-500 rounded-full p-1 mr-2">
-                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                        </div>
-                        <span>100% Satisfaction Guarantee</span>
-                    </div>
-                    <div class="flex items-center">
-                        <div class="bg-blue-500 rounded-full p-1 mr-2">
-                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                        </div>
-                        <span>Proudly South African</span>
-                    </div>
-                </div>
-            </div>
-            <div class="md:w-1/2">
-                <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-gray-700/30">
-                    <h3 class="text-xl font-bold mb-4">Free Website Consultation</h3>
-                    <form action="mailto:hello@greymc.co.za" method="post" enctype="text/plain" class="space-y-4">
-                        <input type="hidden" name="subject" value="Website Quote Request - GreyMC">
-                        <div>
-                            <label class="block text-sm font-medium mb-1">Full Name *</label>
-                            <input type="text" name="name" required class="w-full px-4 py-2 rounded-lg bg-white/10 border border-gray-400/30 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-1">Email Address *</label>
-                            <input type="email" name="email" required class="w-full px-4 py-2 rounded-lg bg-white/10 border border-gray-400/30 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-1">Phone Number *</label>
-                            <input type="tel" name="phone" required class="w-full px-4 py-2 rounded-lg bg-white/10 border border-gray-400/30 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-1">Package Interest</label>
-                            <select name="package" class="w-full px-4 py-2 rounded-lg bg-white/10 border border-gray-400/30 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <option>Essential - R2,500</option>
-                                <option>Professional - R4,500 + R250/month</option>
-                                <option>Premium - R6,500 + R450/month</option>
-                                <option>Custom Quote Required</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition">Get My Free Quote Now!</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust Badges -->
-    <section class="bg-gray-50 py-8">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-blue-600">50+</div>
-                    <div class="text-gray-600">Websites Delivered</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-blue-600">100%</div>
-                    <div class="text-gray-600">Client Satisfaction</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-blue-600">7-14</div>
-                    <div class="text-gray-600">Days Delivery</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-blue-600">200+</div>
-                    <div class="text-gray-600">Happy Businesses</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Web Design Services</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We specialize in creating high-performance static websites that help South African businesses grow online.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:border-blue-400 transition">
-                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-laptop-code text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Static Website Development</h3>
-                    <p class="text-gray-600 mb-4">Lightning-fast, secure static websites that outperform traditional CMS platforms.</p>
-                    <a href="#contact" class="text-blue-600 font-medium inline-flex items-center">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
-                </div>
-                
-                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:border-blue-400 transition">
-                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-mobile-alt text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Mobile Responsive Design</h3>
-                    <p class="text-gray-600 mb-4">Perfectly optimized for all devices - smartphones, tablets and desktops.</p>
-                    <a href="#contact" class="text-blue-600 font-medium inline-flex items-center">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
-                </div>
-                
-                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:border-blue-400 transition">
-                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-search text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">SEO Optimization</h3>
-                    <p class="text-gray-600 mb-4">Built-in SEO features to help your website rank higher in search results.</p>
-                    <a href="#contact" class="text-blue-600 font-medium inline-flex items-center">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
-                </div>
-                
-                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:border-blue-400 transition">
-                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-globe text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Domain Registration</h3>
-                    <p class="text-gray-600 mb-4">Secure your perfect .co.za or other domain name with our expert assistance.</p>
-                    <a href="#contact" class="text-blue-600 font-medium inline-flex items-center">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
-                </div>
-                
-                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:border-blue-400 transition">
-                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-server text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Web Hosting</h3>
-                    <p class="text-gray-600 mb-4">Fast, reliable South African hosting with 99.9% uptime guarantee.</p>
-                    <a href="#contact" class="text-blue-600 font-medium inline-flex items-center">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
-                </div>
-                
-                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:border-blue-400 transition">
-                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-envelope text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Email Setup</h3>
-                    <p class="text-gray-600 mb-4">Professional email addresses @yourdomain.com with easy-to-use webmail.</p>
-                    <a href="#contact" class="text-blue-600 font-medium inline-flex items-center">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Recent Work</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">See examples of websites we've created for South African businesses.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
-                    <div class="h-48 bg-gradient-to-r from-blue-400 to-purple-500"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Cape Town Boutique</h3>
-                        <p class="text-gray-600 mb-4">Elegant static website for a high-end fashion retailer.</p>
-                        <a href="#" class="text-blue-600 font-medium inline-flex items-center">View Case Study <i class="fas fa-arrow-right ml-2"></i></a>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
-                    <div class="h-48 bg-gradient-to-r from-green-400 to-blue-500"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Jo'burg Consulting</h3>
-                        <p class="text-gray-600 mb-4">Professional services website with contact forms.</p>
-                        <a href="#" class="text-blue-600 font-medium inline-flex items-center">View Case Study <i class="fas fa-arrow-right ml-2"></i></a>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
-                    <div class="h-48 bg-gradient-to-r from-orange-400 to-pink-500"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Durban Restaurant</h3>
-                        <p class="text-gray-600 mb-4">Menu-focused website with online reservations.</p>
-                        <a href="#" class="text-blue-600 font-medium inline-flex items-center">View Case Study <i class="fas fa-arrow-right ml-2"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition">Get Your Website Now</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">All prices in South African Rands (ZAR). No hidden fees.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <!-- Essential Package -->
-                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:border-blue-400 transition package-card relative">
-                    <div class="absolute top-0 left-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">No Monthly Fees</div>
-                    <h3 class="text-2xl font-bold mb-2">Essential</h3>
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold">R2,500</span>
-                        <span class="text-gray-600">one-time</span>
-                    </div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>5 Custom Pages</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Mobile Responsive Design</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Basic SEO Setup</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Contact Form</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>1 Design Revision</span>
-                        </li>
-                    </ul>
-                    <a href="#contact" class="block w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-4 rounded-lg text-center transition">Get Started</a>
-                </div>
-                
-                <!-- Professional Package -->
-                <div class="bg-white rounded-xl p-8 border-2 border-blue-400 shadow-lg hover:shadow-xl transition package-card relative">
-                    <div class="absolute popular-badge bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">MOST POPULAR</div>
-                    <div class="absolute top-0 left-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">Includes Support</div>
-                    <h3 class="text-2xl font-bold mb-2">Professional</h3>
-                    <div class="mb-2">
-                        <span class="text-4xl font-bold">R4,500</span>
-                        <span class="text-gray-600">setup</span>
-                    </div>
-                    <div class="text-gray-600 mb-6">+ R250/month</div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Everything in Essential</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Domain Name Registration</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Web Hosting & Maintenance</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Ongoing Technical Support</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Monthly Analytics Report</span>
-                        </li>
-                    </ul>
-                    <a href="#contact" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg text-center transition">Choose This Package</a>
-                </div>
-                
-                <!-- Premium Package -->
-                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:border-blue-400 transition package-card relative">
-                    <div class="absolute top-0 left-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">Complete Solution</div>
-                    <h3 class="text-2xl font-bold mb-2">Premium</h3>
-                    <div class="mb-2">
-                        <span class="text-4xl font-bold">R6,500</span>
-                        <span class="text-gray-600">setup</span>
-                    </div>
-                    <div class="text-gray-600 mb-6">+ R450/month</div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Everything in Professional</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>5 Professional Email Addresses</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Priority Support</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Monthly Content Updates</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Advanced SEO Setup</span>
-                        </li>
-                    </ul>
-                    <a href="#contact" class="block w-full bg-gray-800 hover:bg-black text-white font-bold py-3 px-4 rounded-lg text-center transition">Get Complete Solution</a>
-                </div>
-            </div>
-            
-            <div class="mt-12 bg-blue-50 rounded-xl p-8 max-w-5xl mx-auto">
-                <h3 class="text-xl font-bold mb-4 text-center">14-Day Money-Back Guarantee</h3>
-                <p class="text-gray-700 text-center">We're confident you'll love your new website. If you're not completely satisfied within the first 14 days, we'll give you a full refund - no questions asked.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Risk Reversal Section -->
-    <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Zero Risk Guarantee</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We remove all the risk from your website investment</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition">
-                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <i class="fas fa-lock text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-center">100% Money-Back Guarantee</h3>
-                    <p class="text-gray-600 text-center">Not happy with your website? Get a full refund within 14 days.</p>
-                </div>
-                
-                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition">
-                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <i class="fas fa-bolt text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-center">⚡ Speed Promise</h3>
-                    <p class="text-gray-600 text-center">Your website loads in under 2 seconds or we optimize it for free.</p>
-                </div>
-                
-                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition">
-                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <i class="fas fa-sync-alt text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-center">Unlimited Revisions</h3>
-                    <p class="text-gray-600 text-center">We'll keep refining until you're 100% satisfied.</p>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition">Start Risk-Free Today</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Don't just take our word for it - hear from our happy clients</p>
-            </div>
-            
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-gray-50 rounded-xl p-8 mb-8">
-                    <div class="flex items-center mb-4">
-                        <div class="flex items-center mr-4">
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                        </div>
-                        <span class="text-sm text-gray-600">Cape Town Boutique</span>
-                    </div>
-                    <p class="text-lg italic mb-4">"GreyMC delivered our website in 10 days. It's fast, looks professional, and our online sales increased 40%!"</p>
-                    <p class="font-medium">- Sarah M.</p>
-                </div>
-                
-                <div class="bg-gray-50 rounded-xl p-8 mb-8">
-                    <div class="flex items-center mb-4">
-                        <div class="flex items-center mr-4">
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                        </div>
-                        <span class="text-sm text-gray-600">Johannesburg Consulting</span>
-                    </div>
-                    <p class="text-lg italic mb-4">"Best decision we made. Our old WordPress site took 8 seconds to load. This one loads in 1.2 seconds!"</p>
-                    <p class="font-medium">- David K.</p>
-                </div>
-                
-                <div class="bg-gray-50 rounded-xl p-8">
-                    <div class="flex items-center mb-4">
-                        <div class="flex items-center mr-4">
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                        </div>
-                        <span class="text-sm text-gray-600">Durban Restaurant</span>
-                    </div>
-                    <p class="text-lg italic mb-4">"Professional service, fair pricing, and ongoing support. Highly recommend GreyMC!"</p>
-                    <p class="font-medium">- Lisa R.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Answers to common questions about our website services</p>
-            </div>
-            
-            <div class="max-w-3xl mx-auto space-y-6">
-                <div class="bg-white rounded-xl p-6 shadow-sm">
-                    <h3 class="text-xl font-bold mb-3">Do you accept South African Rands (ZAR)?</h3>
-                    <p class="text-gray-600">Yes, all our prices are in ZAR and we accept payments via EFT, credit card, and PayPal.</p>
-                </div>
-                
-                <div class="bg-white rounded-xl p-6 shadow-sm">
-                    <h3 class="text-xl font-bold mb-3">Is hosting located in South Africa for faster loading?</h3>
-                    <p class="text-gray-600">Yes, we use South African hosting servers for all our clients to ensure fast loading times for local visitors.</p>
-                </div>
-                
-                <div class="bg-white rounded-xl p-6 shadow-sm">
-                    <h3 class="text-xl font-bold mb-3">Do you provide POPIA compliance for data protection?</h3>
-                    <p class="text-gray-600">Absolutely. All our websites include basic POPIA compliance features, and we can provide additional compliance consulting if needed.</p>
-                </div>
-                
-                <div class="bg-white rounded-xl p-6 shadow-sm">
-                    <h3 class="text-xl font-bold mb-3">What payment methods do you accept in South Africa?</h3>
-                    <p class="text-gray-600">We accept EFT (bank transfer), credit/debit cards (Visa, Mastercard), and PayPal for your convenience.</p>
-                </div>
-                
-                <div class="bg-white rounded-xl p-6 shadow-sm">
-                    <h3 class="text-xl font-bold mb-3">Can I cancel the monthly services anytime?</h3>
-                    <p class="text-gray-600">Yes, you can cancel the Professional or Premium monthly services anytime with 30 days notice. There are no long-term contracts.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Urgency Section -->
-    <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+    <section class="hero-bg text-white py-20 md:py-32">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">🚀 Ready to Launch Your Fast Website?</h2>
-            <p class="text-xl mb-8 max-w-3xl mx-auto">Join the 50+ South African businesses we've helped this year!</p>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Transform Your Courts with Professional Resurfacing</h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">Specialized tennis and netball court resurfacing services with over 15 years of experience</p>
             
-            <div class="flex flex-wrap justify-center gap-8 mb-12">
-                <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-                    <div class="text-3xl font-bold mb-2">7-14 Days</div>
-                    <div class="text-sm">Average Delivery</div>
-                </div>
-                <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-                    <div class="text-3xl font-bold mb-2">2 Hours</div>
-                    <div class="text-sm">Response Time</div>
-                </div>
-                <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-                    <div class="text-3xl font-bold mb-2">100%</div>
-                    <div class="text-sm">Client Satisfaction</div>
-                </div>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+                <a href="#contact" class="cta-button bg-secondary hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition">
+                    Get Free Quote
+                </a>
+                <a href="#gallery" class="cta-button bg-white hover:bg-gray-100 text-primary font-bold py-3 px-8 rounded-lg text-lg transition">
+                    View Our Work
+                </a>
             </div>
             
-            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-4">
-                <a href="#contact" class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-full font-bold transition">Get My Website Quote</a>
-                <a href="tel:+27815571278" class="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-full font-bold transition">Call Now: +27 81 557 1278</a>
+            <div class="flex flex-wrap justify-center gap-8 mt-12">
+                <div class="flex items-center">
+                    <i class="fas fa-trophy text-secondary text-2xl mr-3"></i>
+                    <span class="text-lg">15+ Years Experience</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-secondary text-2xl mr-3"></i>
+                    <span class="text-lg">500+ Courts Resurfaced</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-certificate text-secondary text-2xl mr-3"></i>
+                    <span class="text-lg">Certified Installers</span>
+                </div>
             </div>
-            
-            <p class="text-sm opacity-80">Free consultation • No obligation • Local support</p>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
+    <!-- Services Overview -->
+    <section id="services" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Ready to start your project? Contact us today for a free consultation.</p>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Our Resurfacing Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Professional solutions for all your tennis and netball court needs</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-light rounded-xl p-6 text-center shadow-md transition-all duration-300">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-paint-roller text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Court Resurfacing</h3>
+                    <p class="text-gray-600 mb-4">Complete resurfacing with premium acrylic coatings for optimal performance and longevity.</p>
+                    <a href="#contact" class="text-secondary font-semibold hover:underline">Learn More</a>
                 </div>
                 
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div>
-                        <form action="mailto:hello@greymc.co.za" method="post" enctype="text/plain" class="space-y-6">
-                            <input type="hidden" name="subject" value="Website Quote Request - GreyMC">
-                            
-                            <div>
-                                <label class="block text-sm font-medium mb-1">Full Name *</label>
-                                <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <!-- Service 2 -->
+                <div class="service-card bg-light rounded-xl p-6 text-center shadow-md transition-all duration-300">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-tools text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Crack Repair</h3>
+                    <p class="text-gray-600 mb-4">Expert crack filling and repair to restore your court's structural integrity.</p>
+                    <a href="#contact" class="text-secondary font-semibold hover:underline">Learn More</a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-light rounded-xl p-6 text-center shadow-md transition-all duration-300">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-ruler-combined text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Line Painting</h3>
+                    <p class="text-gray-600 mb-4">Precision line marking for tennis, netball, and multi-sport court layouts.</p>
+                    <a href="#contact" class="text-secondary font-semibold hover:underline">Learn More</a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-light rounded-xl p-6 text-center shadow-md transition-all duration-300">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-cog text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Maintenance</h3>
+                    <p class="text-gray-600 mb-4">Regular maintenance programs to extend your court's lifespan and performance.</p>
+                    <a href="#contact" class="text-secondary font-semibold hover:underline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before & After Gallery -->
+    <section id="gallery" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Transformation Gallery</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">See the remarkable difference our resurfacing makes</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="grid grid-cols-2">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1541252260730-0412e8e2108e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Before tennis court resurfacing - cracked and worn surface" class="w-full h-full object-cover">
+                            <div class="absolute bottom-0 left-0 bg-primary text-white px-3 py-1">Before</div>
+                        </div>
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1540457178556-99355a3c38aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="After tennis court resurfacing - pristine new surface" class="w-full h-full object-cover">
+                            <div class="absolute bottom-0 left-0 bg-secondary text-white px-3 py-1">After</div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-primary">High School Tennis Courts</h3>
+                        <p class="text-gray-600 text-sm">Acrylic resurfacing with custom color scheme</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="grid grid-cols-2">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1541252260730-0412e8e2108e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Before netball court repair - faded and damaged surface" class="w-full h-full object-cover">
+                            <div class="absolute bottom-0 left-0 bg-primary text-white px-3 py-1">Before</div>
+                        </div>
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1540457178556-99355a3c38aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="After netball court resurfacing - vibrant new surface" class="w-full h-full object-cover">
+                            <div class="absolute bottom-0 left-0 bg-secondary text-white px-3 py-1">After</div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-primary">Community Netball Complex</h3>
+                        <p class="text-gray-600 text-sm">Multi-court resurfacing project</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="grid grid-cols-2">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1541252260730-0412e8e2108e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Before private tennis court renovation - deteriorated surface" class="w-full h-full object-cover">
+                            <div class="absolute bottom-0 left-0 bg-primary text-white px-3 py-1">Before</div>
+                        </div>
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1540457178556-99355a3c38aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="After private tennis court resurfacing - professional new surface" class="w-full h-full object-cover">
+                            <div class="absolute bottom-0 left-0 bg-secondary text-white px-3 py-1">After</div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-primary">Private Tennis Club</h3>
+                        <p class="text-gray-600 text-sm">Premium cushioned acrylic surface</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="cta-button bg-primary hover:bg-dark text-white font-bold py-3 px-8 rounded-lg text-lg transition">
+                    Request Your Free Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Court Surface Types -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Court Surface Options</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Choose the perfect surface for your facility</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Surface 1 -->
+                <div class="bg-light rounded-xl p-6 shadow-md">
+                    <div class="mb-4">
+                        <img src="https://images.unsplash.com/photo-1540457178556-99355a3c38aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Acrylic court surface texture - professional installation" class="w-full h-48 object-cover rounded-lg">
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-2">Acrylic Hard Court</h3>
+                    <p class="text-gray-600 mb-4">Durable, low-maintenance surface ideal for high-traffic facilities. Available in multiple colors.</p>
+                    <ul class="text-gray-700 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Excellent durability</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Low maintenance requirements</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Customizable colors</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Surface 2 -->
+                <div class="bg-light rounded-xl p-6 shadow-md">
+                    <div class="mb-4">
+                        <img src="https://images.unsplash.com/photo-1540457178556-99355a3c38aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Cushioned court surface texture - professional installation" class="w-full h-48 object-cover rounded-lg">
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-2">Cushioned Surface</h3>
+                    <p class="text-gray-600 mb-4">Shock-absorbing surface that reduces player fatigue and injury risk. Perfect for competitive play.</p>
+                    <ul class="text-gray-700 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Superior shock absorption</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Reduced player fatigue</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Ideal for competitive play</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Surface 3 -->
+                <div class="bg-light rounded-xl p-6 shadow-md">
+                    <div class="mb-4">
+                        <img src="https://images.unsplash.com/photo-1540457178556-99355a3c38aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Multi-sport court surface texture - professional installation" class="w-full h-48 object-cover rounded-lg">
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-2">Multi-Sport Surface</h3>
+                    <p class="text-gray-600 mb-4">Versatile surface suitable for tennis, netball, basketball, and more. Maximizes facility usage.</p>
+                    <ul class="text-gray-700 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Multi-purpose functionality</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Optimized for various sports</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Maximizes facility usage</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Areas -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Service Areas</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We proudly serve facilities throughout the metropolitan region</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <div class="bg-white rounded-xl shadow-md p-6 h-full">
+                        <h3 class="text-xl font-bold text-primary mb-4">Coverage Map</h3>
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64 flex items-center justify-center text-gray-500">
+                            Interactive Service Area Map
+                        </div>
+                        <p class="mt-4 text-gray-600">We travel throughout the metropolitan area to serve your facility needs. Contact us to check availability in your specific location.</p>
+                        <a href="#contact" class="inline-block mt-4 bg-secondary hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-lg transition">
+                            Check Service Availability
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-white rounded-xl shadow-md p-6 h-full">
+                        <h3 class="text-xl font-bold text-primary mb-4">Why Choose Our Service Area Coverage?</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-truck text-secondary text-xl mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Mobile Service Units</h4>
+                                    <p class="text-gray-600">Our fully equipped service vehicles bring the shop to your facility.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-clock text-secondary text-xl mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Quick Response Times</h4>
+                                    <p class="text-gray-600">We understand the importance of minimizing court downtime.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-secondary text-xl mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Local Expertise</h4>
+                                    <p class="text-gray-600">Decades of experience serving local facilities and communities.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-shield-alt text-secondary text-xl mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Weather Adaptation</h4>
+                                    <p class="text-gray-600">We plan projects around seasonal conditions for optimal results.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Why Choose ProCourt Solutions?</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Experience, quality, and service that sets us apart</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <div class="flex items-start mb-8">
+                        <div class="bg-primary rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-trophy text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-primary mb-2">15+ Years of Expertise</h3>
+                            <p class="text-gray-600">Our team has been transforming sports facilities since 2008, working with schools, clubs, and private facilities.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start mb-8">
+                        <div class="bg-primary rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-certificate text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-primary mb-2">Certified Installers</h3>
+                            <p class="text-gray-600">All our technicians are certified by leading industry organizations and manufacturers.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start mb-8">
+                        <div class="bg-primary rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-shield-alt text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-primary mb-2">Industry-Leading Warranty</h3>
+                            <p class="text-gray-600">We stand behind our work with comprehensive warranties on materials and labor.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="flex items-start mb-8">
+                        <div class="bg-primary rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-paint-brush text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-primary mb-2">Premium Materials</h3>
+                            <p class="text-gray-600">We use only the highest quality acrylic coatings and resurfacing materials from leading manufacturers.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start mb-8">
+                        <div class="bg-primary rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-calendar-check text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-primary mb-2">On-Time Completion</h3>
+                            <p class="text-gray-600">We respect your schedule and consistently complete projects on time or ahead of schedule.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start mb-8">
+                        <div class="bg-primary rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-recycle text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-primary mb-2">Eco-Friendly Practices</h3>
+                            <p class="text-gray-600">We implement sustainable practices and use environmentally responsible materials whenever possible.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-light rounded-xl p-8 shadow-md">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-2/3 mb-6 md:mb-0">
+                        <h3 class="text-2xl font-bold text-primary mb-2">Trusted by Facility Managers Across the Region</h3>
+                        <p class="text-gray-600">Join hundreds of satisfied clients who have transformed their courts with our services.</p>
+                    </div>
+                    <div class="md:w-1/3 text-center">
+                        <a href="#contact" class="cta-button bg-secondary hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition">
+                            Get Your Free Quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Overview -->
+    <section id="process" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Our Resurfacing Process</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">A systematic approach to ensure exceptional results</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center">
+                <!-- Step 1 -->
+                <div class="process-step w-full md:w-1/5 mb-10 md:mb-0 text-center px-4">
+                    <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">1</div>
+                    <h3 class="text-lg font-bold text-primary mb-2">Assessment</h3>
+                    <p class="text-gray-600">Thorough evaluation of court condition and surface requirements</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="process-step w-full md:w-1/5 mb-10 md:mb-0 text-center px-4">
+                    <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">2</div>
+                    <h3 class="text-lg font-bold text-primary mb-2">Preparation</h3>
+                    <p class="text-gray-600">Cleaning, crack repair, and surface preparation for optimal adhesion</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="process-step w-full md:w-1/5 mb-10 md:mb-0 text-center px-4">
+                    <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">3</div>
+                    <h3 class="text-lg font-bold text-primary mb-2">Priming</h3>
+                    <p class="text-gray-600">Application of specialized primer to ensure coating durability</p>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="process-step w-full md:w-1/5 mb-10 md:mb-0 text-center px-4">
+                    <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">4</div>
+                    <h3 class="text-lg font-bold text-primary mb-2">Coating</h3>
+                    <p class="text-gray-600">Multiple layers of premium acrylic coating for long-lasting performance</p>
+                </div>
+                
+                <!-- Step 5 -->
+                <div class="process-step w-full md:w-1/5 text-center px-4">
+                    <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">5</div>
+                    <h3 class="text-lg font-bold text-primary mb-2">Finishing</h3>
+                    <p class="text-gray-600">Line marking, final inspection, and project completion</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-white rounded-xl p-8 shadow-md">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/3 mb-6 md:mb-0">
+                        <img src="https://images.unsplash.com/photo-1540457178556-99355a3c38aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Court resurfacing process - professional team at work" class="rounded-lg w-full">
+                    </div>
+                    <div class="md:w-2/3 md:pl-8">
+                        <h3 class="text-2xl font-bold text-primary mb-4">Typical Project Timeline</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-calendar-alt text-secondary mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">Small Courts (1-2 courts)</h4>
+                                    <p class="text-gray-600">3-5 business days</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-calendar-alt text-secondary mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">Medium Facilities (3-6 courts)</h4>
+                                    <p class="text-gray-600">1-2 weeks</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-calendar-alt text-secondary mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">Large Complexes (7+ courts)</h4>
+                                    <p class="text-gray-600">2-4 weeks</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <p class="mt-4 text-gray-600 italic">*Timeline may vary based on weather conditions and project complexity</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Testimonials -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">What Our Clients Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Hear from facility managers who have transformed their courts with our services</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-light rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16" />
+                        <div class="ml-4">
+                            <h4 class="font-bold text-primary">Sarah Johnson</h4>
+                            <p class="text-gray-600">Athletic Director, Metro High School</p>
+                        </div>
+                    </div>
+                    <div class="flex text-secondary mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic">"ProCourt Solutions transformed our aging tennis courts into a stunning facility that our students and community love. The work was completed ahead of schedule and within budget. Five stars!"</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-light rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16" />
+                        <div class="ml-4">
+                            <h4 class="font-bold text-primary">Michael Chen</h4>
+                            <p class="text-gray-600">Club President, Riverside Tennis Club</p>
+                        </div>
+                    </div>
+                    <div class="flex text-secondary mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic">"We've used ProCourt Solutions for three resurfacing projects over the past five years. Their attention to detail and quality of work is unmatched. Our members constantly compliment the courts!"</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-light rounded-xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16" />
+                        <div class="ml-4">
+                            <h4 class="font-bold text-primary">Jennifer Williams</h4>
+                            <p class="text-gray-600">Facilities Manager, Community Sports Center</p>
+                        </div>
+                    </div>
+                    <div class="flex text-secondary mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic">"The ProCourt team was professional from start to finish. They worked around our schedule to minimize disruption and delivered exceptional results. Our netball courts look brand new!"</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="cta-button bg-primary hover:bg-dark text-white font-bold py-3 px-8 rounded-lg text-lg transition">
+                    Request Your Free Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team & Expertise -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Our Expert Team</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Certified professionals with decades of combined experience</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md text-center">
+                    <div class="bg-gray-200 border-2 border-dashed w-full h-64" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary">Robert Thompson</h3>
+                        <p class="text-secondary mb-2">Founder & CEO</p>
+                        <p class="text-gray-600 text-sm">15+ years in sports surface installation and maintenance</p>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md text-center">
+                    <div class="bg-gray-200 border-2 border-dashed w-full h-64" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary">Maria Rodriguez</h3>
+                        <p class="text-secondary mb-2">Project Manager</p>
+                        <p class="text-gray-600 text-sm">Certified court surface specialist with 12 years experience</p>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md text-center">
+                    <div class="bg-gray-200 border-2 border-dashed w-full h-64" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary">James Wilson</h3>
+                        <p class="text-secondary mb-2">Lead Technician</p>
+                        <p class="text-gray-600 text-sm">Master installer with expertise in all court surface types</p>
+                    </div>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md text-center">
+                    <div class="bg-gray-200 border-2 border-dashed w-full h-64" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary">Lisa Chang</h3>
+                        <p class="text-secondary mb-2">Quality Assurance</p>
+                        <p class="text-gray-600 text-sm">Certified inspector ensuring every project meets standards</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-white rounded-xl p-8 shadow-md">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-2/3 mb-6 md:mb-0">
+                        <h3 class="text-2xl font-bold text-primary mb-4">Our Commitment to Excellence</h3>
+                        <p class="text-gray-600 mb-4">At ProCourt Solutions, we're committed to providing the highest quality court resurfacing services. Our team continuously trains on the latest techniques and materials to ensure we deliver exceptional results.</p>
+                        <p class="text-gray-600">We maintain certifications from leading industry organizations and work exclusively with premium materials from trusted manufacturers.</p>
+                    </div>
+                    <div class="md:w-1/3 text-center">
+                        <a href="#contact" class="cta-button bg-secondary hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition">
+                            Meet Our Team
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Quote Request -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Get Your Free Quote</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Contact us today for a no-obligation assessment and quote</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <div class="bg-light rounded-xl p-8 shadow-md">
+                        <h3 class="text-2xl font-bold text-primary mb-6">Request a Quote</h3>
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                                    <input type="text" id="name" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                                    <input type="email" id="email" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
+                                </div>
                             </div>
                             
-                            <div>
-                                <label class="block text-sm font-medium mb-1">Business Name</label>
-                                <input type="text" name="business" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                            </div>
-                            
-                            <div>
-                                <label class="block text-sm font-medium mb-1">Email Address *</label>
-                                <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                            </div>
-                            
-                            <div>
-                                <label class="block text-sm font-medium mb-1">Phone Number *</label>
-                                <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                            </div>
-                            
-                            <div>
-                                <label class="block text-sm font-medium mb-1">Package Interest</label>
-                                <select name="package" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                                    <option>Essential - R2,500</option>
-                                    <option>Professional - R4,500 + R250/month</option>
-                                    <option>Premium - R6,500 + R450/month</option>
-                                    <option>Custom Quote Required</option>
-                                </select>
-                            </div>
-                            
-                            <div>
-                                <label class="block text-sm font-medium mb-1">Project Description</label>
-                                <textarea name="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Tell us about your website needs..."></textarea>
-                            </div>
-                            
-                            <div>
-                                <label class="block text-sm font-medium mb-3">Preferred Contact Method</label>
-                                <div class="flex flex-wrap gap-4">
-                                    <label class="inline-flex items-center">
-                                        <input type="radio" name="contact-method" value="email" class="h-4 w-4 text-blue-600 focus:ring-blue-500">
-                                        <span class="ml-2">Email</span>
-                                    </label>
-                                    <label class="inline-flex items-center">
-                                        <input type="radio" name="contact-method" value="phone" class="h-4 w-4 text-blue-600 focus:ring-blue-500">
-                                        <span class="ml-2">Phone Call</span>
-                                    </label>
-                                    <label class="inline-flex items-center">
-                                        <input type="radio" name="contact-method" value="whatsapp" class="h-4 w-4 text-blue-600 focus:ring-blue-500">
-                                        <span class="ml-2">WhatsApp</span>
-                                    </label>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                                    <input type="tel" id="phone" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
+                                </div>
+                                <div>
+                                    <label for="facility" class="block text-gray-700 font-medium mb-2">Facility Type</label>
+                                    <select id="facility" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
+                                        <option>School</option>
+                                        <option>Club</option>
+                                        <option>Community Center</option>
+                                        <option>Private Facility</option>
+                                        <option>Other</option>
+                                    </select>
                                 </div>
                             </div>
                             
                             <div>
-                                <label class="block text-sm font-medium mb-1">When do you need your website?</label>
-                                <select name="timeline" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                                    <option>ASAP - Within 1 week</option>
-                                    <option>Within 2-4 weeks</option>
-                                    <option>Within 1-2 months</option>
-                                    <option>Just exploring options</option>
+                                <label for="courts" class="block text-gray-700 font-medium mb-2">Number of Courts</label>
+                                <input type="number" id="courts" min="1" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
+                            </div>
+                            
+                            <div>
+                                <label for="surface" class="block text-gray-700 font-medium mb-2">Current Surface Condition</label>
+                                <select id="surface" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
+                                    <option>Good - Minor wear</option>
+                                    <option>Fair - Some cracking/pitting</option>
+                                    <option>Poor - Significant damage</option>
+                                    <option>Unknown - Need assessment</option>
                                 </select>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Additional Details</label>
+                                <textarea id="message" rows="4" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="cta-button w-full bg-primary hover:bg-dark text-white font-bold py-4 px-6 rounded-lg text-lg transition">
+                                Submit Quote Request
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-light rounded-xl p-8 shadow-md h-full">
+                        <h3 class="text-2xl font-bold text-primary mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-primary rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Call Us</h4>
+                                    <p class="text-gray-600 text-lg font-semibold"><a href="tel:+18007762687">(800) PRO-COURT</a></p>
+                                    <p class="text-gray-600">Mon-Fri: 8am-6pm</p>
+                                </div>
                             </div>
                             
                             <div class="flex items-start">
-                                <div class="flex items-center h-5">
-                                    <input type="checkbox" name="newsletter" value="yes" class="h-4 w-4 text-blue-600 focus:ring-blue-500 rounded">
+                                <div class="bg-primary rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-envelope text-white"></i>
                                 </div>
-                                <div class="ml-3 text-sm">
-                                    <label class="font-medium text-gray-700">Send me web design tips & special offers</label>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Email Us</h4>
+                                    <p class="text-gray-600"><a href="mailto:info@procourtsolutions.com">info@procourtsolutions.com</a></p>
                                 </div>
                             </div>
                             
-                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg transition">Get My Free Quote Now!</button>
-                        </form>
-                    </div>
-                    
-                    <div>
-                        <div class="bg-gray-50 rounded-xl p-8 h-full">
-                            <h3 class="text-2xl font-bold mb-6">Prefer to talk directly?</h3>
-                            
-                            <div class="space-y-8">
-                                <div class="flex items-start">
-                                    <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                        <i class="fas fa-phone-alt text-blue-600"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-lg mb-1">Call Us</h4>
-                                        <a href="tel:+27815571278" class="text-blue-600 hover:underline block mb-1">+27 81 557 1278</a>
-                                        <p class="text-gray-600 text-sm">Mon-Fri 8AM-6PM SAST</p>
-                                    </div>
+                            <div class="flex items-start">
+                                <div class="bg-primary rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
                                 </div>
-                                
-                                <div class="flex items-start">
-                                    <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                        <i class="fas fa-envelope text-blue-600"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-lg mb-1">Email Us</h4>
-                                        <a href="mailto:hello@greymc.co.za" class="text-blue-600 hover:underline block mb-1">hello@greymc.co.za</a>
-                                        <p class="text-gray-600 text-sm">Response within 2 hours</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-start">
-                                    <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                        <i class="fab fa-whatsapp text-blue-600"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-lg mb-1">WhatsApp</h4>
-                                        <a href="https://wa.me/27815571278?text=Hi! I'm interested in a website quote" class="text-blue-600 hover:underline block mb-1">Chat on WhatsApp</a>
-                                        <p class="text-gray-600 text-sm">Instant responses</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="pt-4 border-t border-gray-200">
-                                    <h4 class="font-bold text-lg mb-4">Our Location</h4>
-                                    <p class="text-gray-700 mb-4">Serving all of South Africa with fast, reliable web solutions.</p>
-                                    <div class="bg-gray-200 rounded-lg overflow-hidden h-48">
-                                        <!-- Map placeholder -->
-                                        <div class="w-full h-full flex items-center justify-center text-gray-500">
-                                            <i class="fas fa-map-marker-alt text-3xl"></i>
-                                            <span class="ml-2">South Africa</span>
-                                        </div>
-                                    </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Visit Our Office</h4>
+                                    <p class="text-gray-600">123 Sports Facility Blvd<br>Sportstown, ST 12345</p>
                                 </div>
                             </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-primary rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-clock text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Business Hours</h4>
+                                    <p class="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday & Sunday: By appointment</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-10">
+                            <h4 class="font-bold text-gray-800 mb-4">Our Service Vehicles</h4>
+                            <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-48" />
                         </div>
                     </div>
                 </div>
@@ -697,130 +950,129 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+    <footer class="bg-dark text-white pt-16 pb-8">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 <div>
-                    <h4 class="text-white text-xl font-bold mb-6">GreyMC Web Solutions</h4>
-                    <p class="mb-6">Creating lightning-fast static websites for South African businesses since 2020.</p>
-                    <div class="space-y-2">
-                        <p class="flex items-center"><i class="fas fa-phone-alt mr-2 text-blue-400"></i> <a href="tel:+27815571278" class="hover:text-white">+27 81 557 1278</a></p>
-                        <p class="flex items-center"><i class="fas fa-envelope mr-2 text-blue-400"></i> <a href="mailto:hello@greymc.co.za" class="hover:text-white">hello@greymc.co.za</a></p>
-                        <p class="flex items-center"><i class="fas fa-map-marker-alt mr-2 text-blue-400"></i> Serving all of South Africa</p>
+                    <div class="flex items-center mb-6">
+                        <div class="bg-primary w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-tennis-ball text-white text-xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold">ProCourt<span class="text-secondary">Solutions</span></h2>
+                    </div>
+                    <p class="text-gray-300 mb-6">Professional tennis and netball court resurfacing services with over 15 years of experience transforming sports facilities.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 
                 <div>
-                    <h4 class="text-white text-xl font-bold mb-6">Quick Links</h4>
+                    <h3 class="text-lg font-bold mb-6">Services</h3>
                     <ul class="space-y-3">
-                        <li><a href="#services" class="hover:text-white transition">Our Services</a></li>
-                        <li><a href="#portfolio" class="hover:text-white transition">Portfolio</a></li>
-                        <li><a href="#pricing" class="hover:text-white transition">Pricing</a></li>
-                        <li><a href="#contact" class="hover:text-white transition">Get Quote</a></li>
-                        <li><a href="#faq" class="hover:text-white transition">FAQ</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Tennis Court Resurfacing</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Netball Court Repair</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Acrylic Court Surfaces</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Court Maintenance Services</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Line Painting</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Crack Repair</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="text-white text-xl font-bold mb-6">Services</h4>
+                    <h3 class="text-lg font-bold mb-6">Quick Links</h3>
                     <ul class="space-y-3">
-                        <li>Static Website Development</li>
-                        <li>Mobile Responsive Design</li>
-                        <li>SEO Optimization</li>
-                        <li>Domain Registration</li>
-                        <li>Web Hosting</li>
-                        <li>Email Setup</li>
+                        <li><a href="#services" class="text-gray-300 hover:text-white">Our Services</a></li>
+                        <li><a href="#gallery" class="text-gray-300 hover:text-white">Project Gallery</a></li>
+                        <li><a href="#process" class="text-gray-300 hover:text-white">Our Process</a></li>
+                        <li><a href="#testimonials" class="text-gray-300 hover:text-white">Testimonials</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Free Quote</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="text-white text-xl font-bold mb-6">Connect & Trust</h4>
-                    <div class="flex space-x-4 mb-6">
-                        <a href="https://linkedin.com/company/greymc" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://facebook.com/greymc" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/greymc" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-twitter"></i></a>
-                    </div>
-                    <div class="space-y-2">
-                        <p class="flex items-center"><i class="fas fa-check-circle mr-2 text-green-400"></i> 100% South African Owned</p>
-                        <p class="flex items-center"><i class="fas fa-check-circle mr-2 text-green-400"></i> POPIA Compliant</p>
-                        <p class="flex items-center"><i class="fas fa-check-circle mr-2 text-green-400"></i> SSL Secured</p>
-                        <p class="flex items-center"><i class="fas fa-check-circle mr-2 text-green-400"></i> Money-Back Guarantee</p>
-                    </div>
+                    <h3 class="text-lg font-bold mb-6">Service Areas</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Metro Area</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Suburban Communities</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Regional Facilities</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Private Estates</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Educational Institutions</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Sports Clubs</a></li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="pt-8 border-t border-gray-800">
+            <div class="border-t border-gray-700 pt-8 mt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center">
-                    <div class="flex flex-wrap justify-center gap-4 mb-4 md:mb-0">
-                        <a href="#privacy" class="hover:text-white transition">Privacy Policy</a>
-                        <a href="#terms" class="hover:text-white transition">Terms of Service</a>
-                        <a href="#refund" class="hover:text-white transition">Refund Policy</a>
-                        <a href="#sitemap" class="hover:text-white transition">Sitemap</a>
-                    </div>
-                    <div class="text-center md:text-right">
-                        <p>&copy; 2024 GreyMC Web Solutions. All rights reserved.</p>
-                        <p>Proudly creating fast websites for South African businesses.</p>
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 ProCourt Resurfacing Solutions. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm">Sitemap</a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <div class="floating-whatsapp">
-        <a href="https://wa.me/27815571278?text=Hi! I need a quote for a website" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full shadow-lg flex items-center transition">
-            <i class="fab fa-whatsapp mr-2 text-xl"></i> Chat Now
-        </a>
-    </div>
-
+    <!-- JavaScript for interactivity -->
     <script>
         // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         });
-
+        
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
                         behavior: 'smooth'
                     });
                     
                     // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
+                    document.getElementById('mobile-menu').classList.add('hidden');
                 }
             });
         });
-
-        // Simple testimonial slider
-        let currentTestimonial = 0;
-        const testimonials = document.querySelectorAll('.testimonial');
         
-        function showTestimonial(index) {
-            testimonials.forEach((testimonial, i) => {
-                testimonial.style.display = i === index ? 'block' : 'none';
+        // Fade-in animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('appear');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+        
+        // Form submission
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your quote request! We will contact you within 24 hours.');
+                form.reset();
             });
         }
-        
-        function nextTestimonial() {
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            showTestimonial(currentTestimonial);
-        }
-        
-        // Initialize
-        showTestimonial(0);
-        setInterval(nextTestimonial, 5000);
     </script>
 </body>
 </html>
