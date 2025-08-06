@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreyMC Agency | Fast Static Websites for South African Businesses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for elements that need more styling */
+        .hero-gradient {
+            background: linear-gradient(135deg, #4b5563 0%, #1f2937 100%);
+        }
+        .testimonial-slider {
+            scroll-snap-type: x mandatory;
+        }
+        .testimonial-slide {
+            scroll-snap-align: start;
+        }
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(10px);
+        }
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .popular-badge {
+            top: -15px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Sticky Navigation -->
+    <nav class="sticky-nav bg-white/90 shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-800">Grey<span class="text-blue-600">MC</span></a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-800 hover:text-blue-600 transition">Home</a>
+                <a href="#services" class="text-gray-800 hover:text-blue-600 transition">Services</a>
+                <a href="#portfolio" class="text-gray-800 hover:text-blue-600 transition">Portfolio</a>
+                <a href="#pricing" class="text-gray-800 hover:text-blue-600 transition">Pricing</a>
+                <a href="#contact" class="text-gray-800 hover:text-blue-600 transition">Contact</a>
+            </div>
+            <a href="#contact" class="hidden md:block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-medium transition">Get Free Quote</a>
+            <button class="md:hidden text-gray-800" id="mobile-menu-button">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-white shadow-lg" id="mobile-menu">
+            <div class="px-4 py-3 space-y-4">
+                <a href="#home" class="block text-gray-800 hover:text-blue-600 transition">Home</a>
+                <a href="#services" class="block text-gray-800 hover:text-blue-600 transition">Services</a>
+                <a href="#portfolio" class="block text-gray-800 hover:text-blue-600 transition">Portfolio</a>
+                <a href="#pricing" class="block text-gray-800 hover:text-blue-600 transition">Pricing</a>
+                <a href="#contact" class="block text-gray-800 hover:text-blue-600 transition">Contact</a>
+                <a href="#contact" class="block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-medium transition text-center">Get Free Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Lightning-Fast Websites for South African Businesses</h1>
+                <p class="text-xl mb-8 text-gray-300">Get a professional, high-performance static website that loads in under 2 seconds - guaranteed!</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-full font-bold text-center transition">Get Your Free Quote</a>
+                    <a href="#portfolio" class="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-full font-bold text-center transition">View Our Portfolio</a>
+                </div>
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <div class="flex items-center">
+                        <div class="bg-blue-500 rounded-full p-1 mr-2">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <span>100% Satisfaction Guarantee</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="bg-blue-500 rounded-full p-1 mr-2">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <span>Proudly South African</span>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2">
+                <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-gray-700/30">
+                    <h3 class="text-xl font-bold mb-4">Free Website Consultation</h3>
+                    <form action="mailto:hello@greymc.co.za" method="post" enctype="text/plain" class="space-y-4">
+                        <input type="hidden" name="subject" value="Website Quote Request - GreyMC">
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Full Name *</label>
+                            <input type="text" name="name" required class="w-full px-4 py-2 rounded-lg bg-white/10 border border-gray-400/30 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Email Address *</label>
+                            <input type="email" name="email" required class="w-full px-4 py-2 rounded-lg bg-white/10 border border-gray-400/30 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Phone Number *</label>
+                            <input type="tel" name="phone" required class="w-full px-4 py-2 rounded-lg bg-white/10 border border-gray-400/30 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Package Interest</label>
+                            <select name="package" class="w-full px-4 py-2 rounded-lg bg-white/10 border border-gray-400/30 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option>Essential - R2,500</option>
+                                <option>Professional - R4,500 + R250/month</option>
+                                <option>Premium - R6,500 + R450/month</option>
+                                <option>Custom Quote Required</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition">Get My Free Quote Now!</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="bg-gray-50 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-blue-600">50+</div>
+                    <div class="text-gray-600">Websites Delivered</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-blue-600">100%</div>
+                    <div class="text-gray-600">Client Satisfaction</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-blue-600">7-14</div>
+                    <div class="text-gray-600">Days Delivery</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-blue-600">200+</div>
+                    <div class="text-gray-600">Happy Businesses</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Web Design Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We specialize in creating high-performance static websites that help South African businesses grow online.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:border-blue-400 transition">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop-code text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Static Website Development</h3>
+                    <p class="text-gray-600 mb-4">Lightning-fast, secure static websites that outperform traditional CMS platforms.</p>
+                    <a href="#contact" class="text-blue-600 font-medium inline-flex items-center">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:border-blue-400 transition">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Mobile Responsive Design</h3>
+                    <p class="text-gray-600 mb-4">Perfectly optimized for all devices - smartphones, tablets and desktops.</p>
+                    <a href="#contact" class="text-blue-600 font-medium inline-flex items-center">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:border-blue-400 transition">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-search text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">SEO Optimization</h3>
+                    <p class="text-gray-600 mb-4">Built-in SEO features to help your website rank higher in search results.</p>
+                    <a href="#contact" class="text-blue-600 font-medium inline-flex items-center">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:border-blue-400 transition">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-globe text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Domain Registration</h3>
+                    <p class="text-gray-600 mb-4">Secure your perfect .co.za or other domain name with our expert assistance.</p>
+                    <a href="#contact" class="text-blue-600 font-medium inline-flex items-center">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:border-blue-400 transition">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-server text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Web Hosting</h3>
+                    <p class="text-gray-600 mb-4">Fast, reliable South African hosting with 99.9% uptime guarantee.</p>
+                    <a href="#contact" class="text-blue-600 font-medium inline-flex items-center">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:border-blue-400 transition">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-envelope text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Email Setup</h3>
+                    <p class="text-gray-600 mb-4">Professional email addresses @yourdomain.com with easy-to-use webmail.</p>
+                    <a href="#contact" class="text-blue-600 font-medium inline-flex items-center">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Recent Work</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">See examples of websites we've created for South African businesses.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
+                    <div class="h-48 bg-gradient-to-r from-blue-400 to-purple-500"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Cape Town Boutique</h3>
+                        <p class="text-gray-600 mb-4">Elegant static website for a high-end fashion retailer.</p>
+                        <a href="#" class="text-blue-600 font-medium inline-flex items-center">View Case Study <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
+                    <div class="h-48 bg-gradient-to-r from-green-400 to-blue-500"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Jo'burg Consulting</h3>
+                        <p class="text-gray-600 mb-4">Professional services website with contact forms.</p>
+                        <a href="#" class="text-blue-600 font-medium inline-flex items-center">View Case Study <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
+                    <div class="h-48 bg-gradient-to-r from-orange-400 to-pink-500"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Durban Restaurant</h3>
+                        <p class="text-gray-600 mb-4">Menu-focused website with online reservations.</p>
+                        <a href="#" class="text-blue-600 font-medium inline-flex items-center">View Case Study <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition">Get Your Website Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">All prices in South African Rands (ZAR). No hidden fees.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Essential Package -->
+                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:border-blue-400 transition package-card relative">
+                    <div class="absolute top-0 left-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">No Monthly Fees</div>
+                    <h3 class="text-2xl font-bold mb-2">Essential</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold">R2,500</span>
+                        <span class="text-gray-600">one-time</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>5 Custom Pages</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Mobile Responsive Design</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Basic SEO Setup</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Contact Form</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>1 Design Revision</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-4 rounded-lg text-center transition">Get Started</a>
+                </div>
+                
+                <!-- Professional Package -->
+                <div class="bg-white rounded-xl p-8 border-2 border-blue-400 shadow-lg hover:shadow-xl transition package-card relative">
+                    <div class="absolute popular-badge bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">MOST POPULAR</div>
+                    <div class="absolute top-0 left-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">Includes Support</div>
+                    <h3 class="text-2xl font-bold mb-2">Professional</h3>
+                    <div class="mb-2">
+                        <span class="text-4xl font-bold">R4,500</span>
+                        <span class="text-gray-600">setup</span>
+                    </div>
+                    <div class="text-gray-600 mb-6">+ R250/month</div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Everything in Essential</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Domain Name Registration</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Web Hosting & Maintenance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Ongoing Technical Support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Monthly Analytics Report</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg text-center transition">Choose This Package</a>
+                </div>
+                
+                <!-- Premium Package -->
+                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:border-blue-400 transition package-card relative">
+                    <div class="absolute top-0 left-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg">Complete Solution</div>
+                    <h3 class="text-2xl font-bold mb-2">Premium</h3>
+                    <div class="mb-2">
+                        <span class="text-4xl font-bold">R6,500</span>
+                        <span class="text-gray-600">setup</span>
+                    </div>
+                    <div class="text-gray-600 mb-6">+ R450/month</div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Everything in Professional</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>5 Professional Email Addresses</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Priority Support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Monthly Content Updates</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Advanced SEO Setup</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full bg-gray-800 hover:bg-black text-white font-bold py-3 px-4 rounded-lg text-center transition">Get Complete Solution</a>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-blue-50 rounded-xl p-8 max-w-5xl mx-auto">
+                <h3 class="text-xl font-bold mb-4 text-center">14-Day Money-Back Guarantee</h3>
+                <p class="text-gray-700 text-center">We're confident you'll love your new website. If you're not completely satisfied within the first 14 days, we'll give you a full refund - no questions asked.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk Reversal Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Zero Risk Guarantee</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We remove all the risk from your website investment</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-lock text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">100% Money-Back Guarantee</h3>
+                    <p class="text-gray-600 text-center">Not happy with your website? Get a full refund within 14 days.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-bolt text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">⚡ Speed Promise</h3>
+                    <p class="text-gray-600 text-center">Your website loads in under 2 seconds or we optimize it for free.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-sync-alt text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Unlimited Revisions</h3>
+                    <p class="text-gray-600 text-center">We'll keep refining until you're 100% satisfied.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition">Start Risk-Free Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Don't just take our word for it - hear from our happy clients</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gray-50 rounded-xl p-8 mb-8">
+                    <div class="flex items-center mb-4">
+                        <div class="flex items-center mr-4">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                        <span class="text-sm text-gray-600">Cape Town Boutique</span>
+                    </div>
+                    <p class="text-lg italic mb-4">"GreyMC delivered our website in 10 days. It's fast, looks professional, and our online sales increased 40%!"</p>
+                    <p class="font-medium">- Sarah M.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-8 mb-8">
+                    <div class="flex items-center mb-4">
+                        <div class="flex items-center mr-4">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                        <span class="text-sm text-gray-600">Johannesburg Consulting</span>
+                    </div>
+                    <p class="text-lg italic mb-4">"Best decision we made. Our old WordPress site took 8 seconds to load. This one loads in 1.2 seconds!"</p>
+                    <p class="font-medium">- David K.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-8">
+                    <div class="flex items-center mb-4">
+                        <div class="flex items-center mr-4">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                        <span class="text-sm text-gray-600">Durban Restaurant</span>
+                    </div>
+                    <p class="text-lg italic mb-4">"Professional service, fair pricing, and ongoing support. Highly recommend GreyMC!"</p>
+                    <p class="font-medium">- Lisa R.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Answers to common questions about our website services</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <h3 class="text-xl font-bold mb-3">Do you accept South African Rands (ZAR)?</h3>
+                    <p class="text-gray-600">Yes, all our prices are in ZAR and we accept payments via EFT, credit card, and PayPal.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <h3 class="text-xl font-bold mb-3">Is hosting located in South Africa for faster loading?</h3>
+                    <p class="text-gray-600">Yes, we use South African hosting servers for all our clients to ensure fast loading times for local visitors.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <h3 class="text-xl font-bold mb-3">Do you provide POPIA compliance for data protection?</h3>
+                    <p class="text-gray-600">Absolutely. All our websites include basic POPIA compliance features, and we can provide additional compliance consulting if needed.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <h3 class="text-xl font-bold mb-3">What payment methods do you accept in South Africa?</h3>
+                    <p class="text-gray-600">We accept EFT (bank transfer), credit/debit cards (Visa, Mastercard), and PayPal for your convenience.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <h3 class="text-xl font-bold mb-3">Can I cancel the monthly services anytime?</h3>
+                    <p class="text-gray-600">Yes, you can cancel the Professional or Premium monthly services anytime with 30 days notice. There are no long-term contracts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgency Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">🚀 Ready to Launch Your Fast Website?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Join the 50+ South African businesses we've helped this year!</p>
+            
+            <div class="flex flex-wrap justify-center gap-8 mb-12">
+                <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
+                    <div class="text-3xl font-bold mb-2">7-14 Days</div>
+                    <div class="text-sm">Average Delivery</div>
+                </div>
+                <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
+                    <div class="text-3xl font-bold mb-2">2 Hours</div>
+                    <div class="text-sm">Response Time</div>
+                </div>
+                <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
+                    <div class="text-3xl font-bold mb-2">100%</div>
+                    <div class="text-sm">Client Satisfaction</div>
+                </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-4">
+                <a href="#contact" class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-full font-bold transition">Get My Website Quote</a>
+                <a href="tel:+27815571278" class="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-full font-bold transition">Call Now: +27 81 557 1278</a>
+            </div>
+            
+            <p class="text-sm opacity-80">Free consultation • No obligation • Local support</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Ready to start your project? Contact us today for a free consultation.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <form action="mailto:hello@greymc.co.za" method="post" enctype="text/plain" class="space-y-6">
+                            <input type="hidden" name="subject" value="Website Quote Request - GreyMC">
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Full Name *</label>
+                                <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Business Name</label>
+                                <input type="text" name="business" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Email Address *</label>
+                                <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Phone Number *</label>
+                                <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Package Interest</label>
+                                <select name="package" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    <option>Essential - R2,500</option>
+                                    <option>Professional - R4,500 + R250/month</option>
+                                    <option>Premium - R6,500 + R450/month</option>
+                                    <option>Custom Quote Required</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Project Description</label>
+                                <textarea name="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Tell us about your website needs..."></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-3">Preferred Contact Method</label>
+                                <div class="flex flex-wrap gap-4">
+                                    <label class="inline-flex items-center">
+                                        <input type="radio" name="contact-method" value="email" class="h-4 w-4 text-blue-600 focus:ring-blue-500">
+                                        <span class="ml-2">Email</span>
+                                    </label>
+                                    <label class="inline-flex items-center">
+                                        <input type="radio" name="contact-method" value="phone" class="h-4 w-4 text-blue-600 focus:ring-blue-500">
+                                        <span class="ml-2">Phone Call</span>
+                                    </label>
+                                    <label class="inline-flex items-center">
+                                        <input type="radio" name="contact-method" value="whatsapp" class="h-4 w-4 text-blue-600 focus:ring-blue-500">
+                                        <span class="ml-2">WhatsApp</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-1">When do you need your website?</label>
+                                <select name="timeline" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    <option>ASAP - Within 1 week</option>
+                                    <option>Within 2-4 weeks</option>
+                                    <option>Within 1-2 months</option>
+                                    <option>Just exploring options</option>
+                                </select>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input type="checkbox" name="newsletter" value="yes" class="h-4 w-4 text-blue-600 focus:ring-blue-500 rounded">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label class="font-medium text-gray-700">Send me web design tips & special offers</label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg transition">Get My Free Quote Now!</button>
+                        </form>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-gray-50 rounded-xl p-8 h-full">
+                            <h3 class="text-2xl font-bold mb-6">Prefer to talk directly?</h3>
+                            
+                            <div class="space-y-8">
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                        <i class="fas fa-phone-alt text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">Call Us</h4>
+                                        <a href="tel:+27815571278" class="text-blue-600 hover:underline block mb-1">+27 81 557 1278</a>
+                                        <p class="text-gray-600 text-sm">Mon-Fri 8AM-6PM SAST</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                        <i class="fas fa-envelope text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">Email Us</h4>
+                                        <a href="mailto:hello@greymc.co.za" class="text-blue-600 hover:underline block mb-1">hello@greymc.co.za</a>
+                                        <p class="text-gray-600 text-sm">Response within 2 hours</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                        <i class="fab fa-whatsapp text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">WhatsApp</h4>
+                                        <a href="https://wa.me/27815571278?text=Hi! I'm interested in a website quote" class="text-blue-600 hover:underline block mb-1">Chat on WhatsApp</a>
+                                        <p class="text-gray-600 text-sm">Instant responses</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="pt-4 border-t border-gray-200">
+                                    <h4 class="font-bold text-lg mb-4">Our Location</h4>
+                                    <p class="text-gray-700 mb-4">Serving all of South Africa with fast, reliable web solutions.</p>
+                                    <div class="bg-gray-200 rounded-lg overflow-hidden h-48">
+                                        <!-- Map placeholder -->
+                                        <div class="w-full h-full flex items-center justify-center text-gray-500">
+                                            <i class="fas fa-map-marker-alt text-3xl"></i>
+                                            <span class="ml-2">South Africa</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <h4 class="text-white text-xl font-bold mb-6">GreyMC Web Solutions</h4>
+                    <p class="mb-6">Creating lightning-fast static websites for South African businesses since 2020.</p>
+                    <div class="space-y-2">
+                        <p class="flex items-center"><i class="fas fa-phone-alt mr-2 text-blue-400"></i> <a href="tel:+27815571278" class="hover:text-white">+27 81 557 1278</a></p>
+                        <p class="flex items-center"><i class="fas fa-envelope mr-2 text-blue-400"></i> <a href="mailto:hello@greymc.co.za" class="hover:text-white">hello@greymc.co.za</a></p>
+                        <p class="flex items-center"><i class="fas fa-map-marker-alt mr-2 text-blue-400"></i> Serving all of South Africa</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white text-xl font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="hover:text-white transition">Our Services</a></li>
+                        <li><a href="#portfolio" class="hover:text-white transition">Portfolio</a></li>
+                        <li><a href="#pricing" class="hover:text-white transition">Pricing</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">Get Quote</a></li>
+                        <li><a href="#faq" class="hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white text-xl font-bold mb-6">Services</h4>
+                    <ul class="space-y-3">
+                        <li>Static Website Development</li>
+                        <li>Mobile Responsive Design</li>
+                        <li>SEO Optimization</li>
+                        <li>Domain Registration</li>
+                        <li>Web Hosting</li>
+                        <li>Email Setup</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white text-xl font-bold mb-6">Connect & Trust</h4>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="https://linkedin.com/company/greymc" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://facebook.com/greymc" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/greymc" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="flex items-center"><i class="fas fa-check-circle mr-2 text-green-400"></i> 100% South African Owned</p>
+                        <p class="flex items-center"><i class="fas fa-check-circle mr-2 text-green-400"></i> POPIA Compliant</p>
+                        <p class="flex items-center"><i class="fas fa-check-circle mr-2 text-green-400"></i> SSL Secured</p>
+                        <p class="flex items-center"><i class="fas fa-check-circle mr-2 text-green-400"></i> Money-Back Guarantee</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="flex flex-wrap justify-center gap-4 mb-4 md:mb-0">
+                        <a href="#privacy" class="hover:text-white transition">Privacy Policy</a>
+                        <a href="#terms" class="hover:text-white transition">Terms of Service</a>
+                        <a href="#refund" class="hover:text-white transition">Refund Policy</a>
+                        <a href="#sitemap" class="hover:text-white transition">Sitemap</a>
+                    </div>
+                    <div class="text-center md:text-right">
+                        <p>&copy; 2024 GreyMC Web Solutions. All rights reserved.</p>
+                        <p>Proudly creating fast websites for South African businesses.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="floating-whatsapp">
+        <a href="https://wa.me/27815571278?text=Hi! I need a quote for a website" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full shadow-lg flex items-center transition">
+            <i class="fab fa-whatsapp mr-2 text-xl"></i> Chat Now
+        </a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Simple testimonial slider
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+        
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.style.display = i === index ? 'block' : 'none';
+            });
+        }
+        
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+        
+        // Initialize
+        showTestimonial(0);
+        setInterval(nextTestimonial, 5000);
+    </script>
+</body>
+</html>
